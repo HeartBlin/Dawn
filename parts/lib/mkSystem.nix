@@ -5,9 +5,7 @@ let
 
   mkSystem = { hostName, system, userName, prettyName }:
     withSystem system ({inputs', self', ... }: let
-      dawn = import "${self}/parts/data/args.nix" 
-        {inherit hostName userName prettyName; };
-
+      dawn = { inherit hostName system userName prettyName; };
       specialArgs = { inherit inputs inputs' self' system dawn; };
  
       defaultPaths = [
