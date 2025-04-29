@@ -5,23 +5,14 @@ let
   inherit (lib.generators) toJSON;
   inherit (config.dawn) vscode;
   inherit (dawn) userName hostName;
-  inherit (builtins) fetchTarball;
-
-  vscode-insiders = (pkgs.vscode.override { isInsiders = true; }).overrideAttrs(x: {
-    version = "latest";
-    buildInputs = x.buildInputs ++ [ pkgs.krb5 ];
-    src = (fetchTarball {
-      url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
-      sha256 = "15m54f4vswv57ywfspwa0lgd81n35kkrqwq2rvp0mp3s6br7nnm6";
-    });
-  });
 
   vscodeExtended = pkgs.vscode-with-extensions.override {
-    vscode = vscode-insiders;
     vscodeExtensions = with pkgs.vscode-extensions; [
       aaron-bond.better-comments
       jnoortheen.nix-ide
       pkief.material-icon-theme
+      github.copilot
+      github.copilot-chat
     ];
   };
 
@@ -73,15 +64,5 @@ in {
   config = mkIf vscode.enable {
     users.users.${userName}.packages = with pkgs; [ nixd nixfmt-classic statix vscodeExtended ];
     homix.".config/Code/User/settings.json".text = settings;
-
-    # * Fix homix'es inability to handle space in filenames
-    system.userActivationScripts.linkVSCodeInsiders.text = ''
-      TARGET="/home/${userName}/.config/Code - Insiders/User/settings.json"
-      SOURCE="/home/${userName}/.config/Code/User/settings.json"
-
-      mkdir -p "$(dirname "$TARGET")"
-      rm -f "$TARGET" || true
-      ln -sf "$SOURCE" "$TARGET"
-    '';
   };
 }
