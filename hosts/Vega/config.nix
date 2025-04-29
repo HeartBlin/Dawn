@@ -1,16 +1,10 @@
-{ config, dawn, inputs, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   dawn = {
     fish.enable = true;
     vscode.enable = true;
   };
-
-  # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Allow non-free packages
-  nixpkgs.config.allowUnfree = true;
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -105,19 +99,4 @@
     corefonts
     font-awesome
   ];
-
-  # Automatic Maintenance
-  nix.settings.auto-optimise-store = true;
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
-
-  system.autoUpgrade = {
-    enable = true;
-    flake = "/home/${dawn.userName}/Documents/Dawn";
-    dates = "daily";
-    allowReboot = false;
-  };
 }

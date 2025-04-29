@@ -5,10 +5,14 @@ let
 
   mkSystem = { hostName, system, userName, prettyName }:
     withSystem system ({inputs', self', ... }: let
-      dawn = { inherit hostName system userName prettyName; };
+      defaultFlakeLocation = "/home/${userName}/Documents/Dawn";
+      dawn = { inherit hostName system userName prettyName 
+                       defaultFlakeLocation; };
+
       specialArgs = { inherit inputs inputs' self' system dawn; };
  
       defaultPaths = [
+        "${self}/modules/common/nixSettings.nix"
         "${self}/modules/packages"
       ];
 
