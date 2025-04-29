@@ -1,8 +1,9 @@
-{ config, dawn, inputs, lib, pkgs, ... }:
+{ config, dawn, inputs, pkgs, ... }:
 
 {
   dawn = {
-    vscode.enable = true;    
+    fish.enable = true;
+    vscode.enable = true;
   };
 
   # Enable flakes
@@ -41,10 +42,6 @@
       LC_TIME = "ro_RO.UTF-8";
     };
   };
-
-  # User definition
-  programs.fish.enable = true;
-  users.users.${dawn.userName}.shell = pkgs.fish;
 
   # Gnome
   services.xserver = {

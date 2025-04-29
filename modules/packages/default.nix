@@ -1,1 +1,1 @@
-_: { imports = [ ./vscode.nix ]; }
+_: { imports = [ ./fish.nix ./vscode.nix ]; }
