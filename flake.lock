@@ -69,21 +69,21 @@
         "type": "github"
       }
     },
-    "hjem": {
+    "homix": {
       "inputs": {
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1743956496,
-        "narHash": "sha256-LguszqsDBTtdBxblQTtN7vOAYmfoe43aHkB8aK1dChE=",
-        "owner": "feel-co",
-        "repo": "hjem",
-        "rev": "e3b63f300f23f2ffeb6efac046cf71b94352fed2",
+        "lastModified": 1720719665,
+        "narHash": "sha256-BKcOoDlMC86zExMKXFXQ04HO99fUNFmtEdvP+gB45Pk=",
+        "owner": "sioodmy",
+        "repo": "homix",
+        "rev": "62bc58f2350cbb061e61ac0f3d63018663fbe4cb",
         "type": "github"
       },
       "original": {
-        "owner": "feel-co",
-        "repo": "hjem",
+        "owner": "sioodmy",
+        "repo": "homix",
         "type": "github"
       }
     },
@@ -153,15 +153,15 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1737062831,
-        "narHash": "sha256-Tbk1MZbtV2s5aG+iM99U8FqwxU/YNArMcWAv6clcsBc=",
-        "owner": "nixos",
+        "lastModified": 1745794561,
+        "narHash": "sha256-T36rUZHUART00h3dW4sV5tv4MrXKT7aWjNfHiZz7OHg=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5df43628fdf08d642be8ba5b3625a6c70731c19c",
+        "rev": "5461b7fa65f3ca74cef60be837fd559a8918eaa0",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
+        "owner": "NixOS",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
@@ -219,7 +219,7 @@
       "inputs": {
         "disko": "disko",
         "flake-parts": "flake-parts",
-        "hjem": "hjem",
+        "homix": "homix",
         "lixModule": "lixModule",
         "nixpkgs": "nixpkgs_4",
         "systems": "systems_2",

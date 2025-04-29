@@ -1,6 +1,10 @@
 { config, dawn, inputs, lib, pkgs, ... }:
 
 {
+  dawn = {
+    vscode.enable = true;    
+  };
+
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -115,7 +119,7 @@
 
   system.autoUpgrade = {
     enable = true;
-    flake = "/home/priestess/Ark";
+    flake = "/home/${dawn.userName}/Documents/Dawn";
     dates = "daily";
     allowReboot = false;
   };

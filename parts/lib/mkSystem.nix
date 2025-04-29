@@ -9,9 +9,13 @@ let
         {inherit hostName userName prettyName; };
 
       specialArgs = { inherit inputs inputs' self' system dawn; };
+ 
+      defaultPaths = [
+        "${self}/modules/packages"
+      ];
 
       defaultModules =  with inputs; [
-        hjem.nixosModules.default
+        homix.nixosModules.default
         disko.nixosModules.default
         lixModule.nixosModules.default
       ];
@@ -24,9 +28,8 @@ let
           description = prettyName;
           isNormalUser = true;
           extraGroups = [ "wheel" "video" "networkmanager" ];
+          homix = true;
         };
-       
-        hjem.users.${userName}.enable = true;
       }];
     in {
       ${hostName} = nixosSystem {
@@ -35,7 +38,7 @@ let
           "${self}/hosts/${hostName}/config.nix"
           "${self}/hosts/${hostName}/disko.nix"
           "${self}/hosts/${hostName}/hardware.nix"
-        ] ++ defaultModules ++ defaultOptions;
+        ] ++ defaultPaths ++ defaultModules ++ defaultOptions;
       };
     });
 in mkSystem
