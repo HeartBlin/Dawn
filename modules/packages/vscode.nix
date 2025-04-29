@@ -19,8 +19,9 @@ let
   vscodeExtended = pkgs.vscode-with-extensions.override {
     vscode = vscode-insiders;
     vscodeExtensions = with pkgs.vscode-extensions; [
-      pkief.material-icon-theme
+      aaron-bond.better-comments
       jnoortheen.nix-ide
+      pkief.material-icon-theme
     ];
   };
 
@@ -73,7 +74,7 @@ in {
     users.users.${userName}.packages = with pkgs; [ nixd nixfmt-classic statix vscodeExtended ];
     homix.".config/Code/User/settings.json".text = settings;
 
-    # Fix homix'es inability to handle space in filenames
+    # * Fix homix'es inability to handle space in filenames
     system.userActivationScripts.linkVSCodeInsiders.text = ''
       TARGET="/home/${userName}/.config/Code - Insiders/User/settings.json"
       SOURCE="/home/${userName}/.config/Code/User/settings.json"
