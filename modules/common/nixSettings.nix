@@ -1,13 +1,28 @@
-{ dawn, inputs', ... }:
+{ dawn, inputs, inputs', lib, ... }:
 
-{
+let 
+  inherit (lib) mapAttrs mapAttrsToList;
+in {
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings = {
-    warn-dirty = false;
-    auto-optimise-store = true;
-    experimental-features = [ "nix-command" "flakes" ];
-    trusted-users = [ "root" "@wheel" ];
+  nix = {
+    registry = mapAttrs (_: flake: { inherit flake;}) inputs;
+    nixPath = mapAttrsToList (x: _: "${x}=flake:${x}") inputs;
+    channel.enable = false;
+
+    settings = {
+      warn-dirty = false;
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
+
+      allowed-users = [ "root" "@wheel" ];
+      trusted-users = [ "root" "@wheel" ];
+
+      flake-registry = "";
+
+      sandbox = true;
+      pure-eval = true;
+    };
   };
 
   programs.nh = {
@@ -16,5 +31,12 @@
     clean.enable = true;
     clean.extraArgs = "--keep 5 --keep-since 3d";
     flake = dawn.defaultFlakeLocation;
+  };
+
+  documentation = {
+    doc.enable = false;
+    info.enable = false;
+    nixos.enable = false;
+    man.enable = false;
   };
 }
