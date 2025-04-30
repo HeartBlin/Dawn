@@ -3,6 +3,7 @@
 {
   dawn = {
     fish.enable = true;
+    foot.enable = true;
     vscode.enable = true;
   };
 
