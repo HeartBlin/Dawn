@@ -89,14 +89,4 @@
     # Browser
     inputs.zen-browser.packages.${pkgs.system}.default
   ];
-
-  # Fonts
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
-    liberation_ttf
-    corefonts
-    font-awesome
-  ];
 }

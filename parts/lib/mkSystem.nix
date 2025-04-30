@@ -12,6 +12,7 @@ let
       specialArgs = { inherit inputs inputs' self' system dawn; };
  
       defaultPaths = [
+        "${self}/modules/common/fonts.nix"
         "${self}/modules/common/nixSettings.nix"
         "${self}/modules/packages"
       ];

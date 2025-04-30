@@ -28,6 +28,7 @@ let
     "editor.letterSpacing" = 0.5;
     "editor.renderWhitespace" = "all";
     "editor.trimAutoWhitespace" = true;
+    "editor.fontFamily" = "Cascadia Code";
 
     # Explorer
     "explorer.compactFolders" = false;
@@ -52,7 +53,10 @@ let
     # Telemetry
     "telemetry.telemetryLevel" = "off";
 
-    # Windw
+    # Terminal
+    "terminal.integrated.fontFamily" = "monospace";
+
+    # Window
     "window.experimentalControlOverlay" = false;
     "window.dialogStyle" = "custom";
     "window.menuBarVisibility" = "toggle";
