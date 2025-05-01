@@ -18,6 +18,7 @@
       }];
     };
     
+    asus.enable = true;
     fish.enable = true;
     foot.enable = true;
     steam.enable = true;

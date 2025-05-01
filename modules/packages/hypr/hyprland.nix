@@ -2,10 +2,36 @@
 
 let
   inherit (lib) mkIf;
-  inherit (config.dawn) hyprland;
+  inherit (config.dawn) asus foot hyprland;
   inherit (dawn.functions) mkHyprMonitors;
 
-  terminal = if config.dawn.foot.enable 
+  asusScript = pkgs.writeShellScriptBin "asusKbdLedManager" ''
+    set -euo pipefail
+
+    action="''${1:-}"
+    current=$(asusctl -k | grep -oP 'Current keyboard led brightness: \K\w+')
+
+    case "$action" in
+      up)
+        case "$current" in
+          High)   exit 0;;  # Already at max
+          *)      exec asusctl -n;;  # Increase normally
+        esac
+        ;;
+      down)
+        case "$current" in
+          Off)    exit 0;;  # Already at min
+          *)      exec asusctl -p;;  # Decrease normally
+        esac
+        ;;
+      *)
+        echo "Usage: $0 [up|down]" >&2
+        exit 1
+        ;;
+    esac
+  '';
+
+  terminal = if foot.enable 
              then "foot"
              else "";
 
@@ -25,6 +51,8 @@ let
   brightness = {
     up = "${lib.getExe pkgs.brightnessctl} -q set +5%";
     down = "${lib.getExe pkgs.brightnessctl} -q set 5%-";
+    kUp = if asus.enable then "${lib.getExe asusScript} up" else "";
+    kDown = if asus.enable then "${lib.getExe asusScript} down" else "";
   };
 
   playerCtl = {
@@ -165,6 +193,8 @@ let
     bindel = ,XF86AudioStop, exec, ${playerCtl.stop}
     bindel = ,XF86AudioNext, exec, ${playerCtl.next}
     bindel = ,XF86AudioPrev, exec, ${playerCtl.prev}
+    bindel = ,XF86KbdBrightnessUp, exec, ${brightness.kUp}
+    bindel = ,XF86KbdBrightnessDown, exec, ${brightness.kDown}
 
     ### Window rules
     windowrule = suppressevent maximize, class:.*
