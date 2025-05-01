@@ -2,6 +2,22 @@
 
 {
   dawn = {
+    hyprland = {
+      enable = true;
+      monitors = [{
+        name = "eDP-1";
+        resolution = "1920x1080";
+        refreshRate = 144;
+        position = { x = 0; y = 0; };
+        scale = 1.0;
+      }];
+
+      wallpapers = [{
+        monitor = "eDP-1";
+        wallpaper = ./images/wallpaper.jpg;
+      }];
+    };
+    
     fish.enable = true;
     foot.enable = true;
     steam.enable = true;

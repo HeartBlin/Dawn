@@ -9,6 +9,8 @@
     disko.url =       "github:nix-community/disko";
     flake-parts.url = "github:hercules-ci/flake-parts";
     homix.url =       "github:sioodmy/homix";
+    hyprland.url =    "github:hyprwm/hyprland";
+    hyprpaper.url =   "github:hyprwm/hyprpaper";
     lixModule.url =   "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
     nh.url =          "github:viperML/nh";
     nixpkgs.url =     "github:NixOS/nixpkgs/nixos-unstable";
