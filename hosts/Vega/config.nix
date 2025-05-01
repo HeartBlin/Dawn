@@ -4,6 +4,7 @@
   dawn = {
     fish.enable = true;
     foot.enable = true;
+    steam.enable = true;
     vscode.enable = true;
   };
 

@@ -13,6 +13,7 @@
     nh.url =          "github:viperML/nh";
     nixpkgs.url =     "github:NixOS/nixpkgs/nixos-unstable";
     systems.url =     "github:nix-systems/x86_64-linux";
+    umu.url =         "github:Open-Wine-Components/umu-launcher?dir=packaging/nix";
     zen-browser.url = "github:youwen5/zen-browser-flake";
   };
 }
