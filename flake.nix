@@ -6,16 +6,34 @@
     };
 
   inputs = {
-    disko.url =       "github:nix-community/disko";
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
     flake-parts.url = "github:hercules-ci/flake-parts";
-    homix.url =       "github:sioodmy/homix";
-    hyprland.url =    "github:hyprwm/hyprland";
-    hyprpaper.url =   "github:hyprwm/hyprpaper";
-    lixModule.url =   "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
-    nh.url =          "github:viperML/nh";
-    nixpkgs.url =     "github:NixOS/nixpkgs/nixos-unstable";
-    systems.url =     "github:nix-systems/x86_64-linux";
-    umu.url =         "github:Open-Wine-Components/umu-launcher?dir=packaging/nix";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+
+    homix.url = "github:sioodmy/homix";
+    homix.inputs.nixpkgs.follows = "nixpkgs";
+
+    hyprland.url = "github:hyprwm/hyprland";
+
+    hyprpaper.url = "github:hyprwm/hyprpaper";
+    hyprpaper.inputs.hyprgraphics.follows = "hyprland/hyprgraphics";
+    hyprpaper.inputs.hyprlang.follows = "hyprland/hyprlang";
+    hyprpaper.inputs.hyprutils.follows = "hyprland/hyprutils";
+    hyprpaper.inputs.nixpkgs.follows = "hyprland/nixpkgs";
+    hyprpaper.inputs.systems.follows = "hyprland/systems";
+
+    lixModule.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
+
+    nh.url = "github:viperML/nh";
+    nh.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    systems.url = "github:nix-systems/x86_64-linux";
+
     zen-browser.url = "github:youwen5/zen-browser-flake";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
   };
 }

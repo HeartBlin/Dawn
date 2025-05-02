@@ -30,8 +30,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Boot
-  boot.initrd.kernelModules = [ "zfs" "nvidia_modeset" "nvidia" "nvidia_uvm" "nvidia_drm" ];
-  boot.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+  boot.initrd.kernelModules = [ "zfs" ];
 
   # Networking && Hostname
   networking = {

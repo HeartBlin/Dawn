@@ -1,4 +1,4 @@
-{ config,dawn, inputs', lib, pkgs, ... }:
+{ config,dawn, lib, pkgs, ... }:
 
 let
   inherit (lib) mkEnableOption mkIf;
@@ -8,10 +8,7 @@ in {
   options.dawn.steam.enable = mkEnableOption "Enables Steam";
   
   config = mkIf steam.enable {
-    users.users.${userName}.packages = [ 
-      inputs'.umu.packages.default
-      pkgs.protontricks  
-    ];
+    users.users.${userName}.packages = [ pkgs.protontricks ];
 
     programs = {
       steam = {

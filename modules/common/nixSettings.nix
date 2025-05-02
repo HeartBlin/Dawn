@@ -4,6 +4,7 @@ let
   inherit (lib) mapAttrs mapAttrsToList;
 in {
   nixpkgs.config.allowUnfree = true;
+  environment.defaultPackages = lib.mkForce [ ];
 
   nix = {
     registry = mapAttrs (_: flake: { inherit flake;}) inputs;
