@@ -5,6 +5,7 @@ _: {
     ./asus.nix
     ./fish.nix
     ./foot.nix
+    ./minecraft.nix
     ./steam.nix
     ./vscode.nix
   ];

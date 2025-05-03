@@ -26,6 +26,9 @@
 
     lixModule.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
 
+    prismlauncher.url = "github:PrismLauncher/PrismLauncher";
+    prismlauncher.inputs.nixpkgs.follows = "nixpkgs";
+
     nh.url = "github:viperML/nh";
     nh.inputs.nixpkgs.follows = "nixpkgs";
 
