@@ -1,21 +1,34 @@
 { config, inputs, pkgs, ... }:
 
-{
+let
+  inherit (config.dawn.hyprland) monitors;
+  wallpaper = ./images/wallpaper.jpg;
+  offset = x: { inherit x; y = 0; };
+  defaultMonitor = {
+    resolution = "1920x1080";
+    scale = 1.0;
+  };
+in {
   dawn = {
     hyprland = {
       enable = true;
-      monitors = [{
-        name = "eDP-1";
-        resolution = "1920x1080";
-        refreshRate = 144;
-        position = { x = 0; y = 0; };
-        scale = 1.0;
-      }];
+      monitors = [
+        (defaultMonitor // {
+          name = "eDP-1";
+          refreshRate = 144;
+          position = offset 0;
+        })
+        (defaultMonitor // {
+          name = "HDMI-A-1";
+          refreshRate = 60;
+          position = offset 1920;
+        })
+      ];
 
-      wallpapers = [{
-        monitor = "eDP-1";
-        wallpaper = ./images/wallpaper.jpg;
-      }];
+      wallpapers = map (m: {
+        inherit wallpaper;
+        monitor = m.name;
+      }) monitors;
     };
     
     asus.enable = true;
