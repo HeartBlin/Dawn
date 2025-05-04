@@ -37,7 +37,7 @@ let
         users.users.${userName} = {
           description = prettyName;
           isNormalUser = true;
-          extraGroups = [ "wheel" "video" "networkmanager" ];
+          extraGroups = [ "wheel" "video" "networkmanager" "fuse" ];
           homix = true;
         };
       }];

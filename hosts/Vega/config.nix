@@ -89,6 +89,7 @@
 
   # NTFS Mounting
   boot.supportedFilesystems = [ "ntfs" ];
+  services.udisks2.enable = true;
 
   # General Packages
   environment.systemPackages = [
