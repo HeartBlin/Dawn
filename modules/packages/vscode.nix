@@ -4,7 +4,7 @@ let
   inherit (lib) mkEnableOption mkIf;
   inherit (lib.generators) toJSON;
   inherit (config.dawn) vscode;
-  inherit (dawn) userName hostName;
+  inherit (dawn) defaultFlakeLocation userName hostName;
 
   vscodeExtended = pkgs.vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [
@@ -40,7 +40,7 @@ let
     "nix.serverPath" = "nixd";
     "nix.serverSettings"."nixd" = {
       "formatting"."command" = [ "nixfmt" ];
-      "options"."nixos"."expr" = "(builtins.getFlake \"/home/${userName}/Documents/Dawan\").nixosConfigurations.${hostName}.options";
+      "options"."nixos"."expr" = "(builtins.getFlake \"${defaultFlakeLocation}\").nixosConfigurations.${hostName}.options";
     };
 
     # Workbench
