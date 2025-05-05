@@ -77,10 +77,11 @@ in {
         pkgs.playerctl
       ];
     };
+
     programs.hyprland = {
       enable = true;
       package = inputs'.hyprland.packages.default;
-      withUWSM = true;
+      withUWSM = false;
     };
   };
 }

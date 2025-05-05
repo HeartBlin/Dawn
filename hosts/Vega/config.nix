@@ -45,6 +45,7 @@ in {
 
     fish.enable = true;
     foot.enable = true;
+    ly.enable = true;
     steam.enable = true;
     vscode.enable = true;
   };
@@ -79,12 +80,8 @@ in {
     };
   };
 
-  # Gnome
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-  };
+  # X11
+  services.xserver.enable = true;
 
   # PipeWire
   services.pulseaudio.enable = false;

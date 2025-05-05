@@ -42,7 +42,6 @@ let
     ${mkHyprMonitors hyprland.monitors}
 
     ### Startup
-    exec-once = uwsm finalize
     exec-once = hyprpaper
 
     ### Look and feel
