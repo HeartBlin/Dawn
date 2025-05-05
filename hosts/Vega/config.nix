@@ -2,7 +2,11 @@
 
 let
   inherit (config.dawn.hyprland) monitors;
-  wallpaper = ./images/wallpaper.jpg;
+  wallpaper = pkgs.fetchurl {
+    url = "https://i.imgur.com/CzGdSG6.jpeg";
+    sha256 = "sha256-spyiaJ5LFppEnmdWej59j8AQ3Y+WdXkJUfQqkDp7JDk=";
+  };
+
   offset = x: { inherit x; y = 0; };
   defaultMonitor = {
     resolution = "1920x1080";
