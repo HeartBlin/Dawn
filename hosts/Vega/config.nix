@@ -39,9 +39,13 @@ in {
       }) monitors;
     };
 
+    minecraft = {
+      enable = true;
+      server.enable = true;
+    };
+
     fish.enable = true;
     foot.enable = true;
-    minecraft.enable = true;
     steam.enable = true;
     vscode.enable = true;
   };

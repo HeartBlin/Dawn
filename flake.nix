@@ -32,6 +32,8 @@
     nh.url = "github:viperML/nh";
     nh.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nix-unit.url = "github:nix-community/nix-unit";

@@ -24,8 +24,13 @@ let
         homix.nixosModules.default
         hyprland.nixosModules.default
         disko.nixosModules.default
+        nix-minecraft.nixosModules.minecraft-servers
         lixModule.nixosModules.default
       ];
+
+      defaultOverlays = with inputs; [{
+        nixpkgs.overlays = [ nix-minecraft.overlay ];
+      }];
 
       defaultOptions = [{
         networking.hostName = hostName;
@@ -34,7 +39,7 @@ let
         users.users.${userName} = {
           description = prettyName;
           isNormalUser = true;
-          extraGroups = [ "wheel" "video" "networkmanager" "fuse" ];
+          extraGroups = [ "wheel" "video" "networkmanager" "fuse" "minecraft" ];
           homix = true;
         };
       }];
@@ -45,7 +50,7 @@ let
           "${self}/hosts/${hostName}/config.nix"
           "${self}/hosts/${hostName}/disko.nix"
           "${self}/hosts/${hostName}/hardware.nix"
-        ] ++ defaultPaths ++ defaultModules ++ defaultOptions;
+        ] ++ defaultPaths ++ defaultModules ++ defaultOptions ++ defaultOverlays;
       };
     });
 in mkSystem
