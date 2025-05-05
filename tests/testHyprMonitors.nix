@@ -7,7 +7,7 @@ monitor = HDMI-B-2, 2560x1440@144, 0x1080, 0.7
 monitor = VGA-1, 1024x768@60, 320x240, 2.0'';
 
   expr = let
-    mkHyprMonitors = import ../parts/lib/mkHyprMonitors.nix;
+    mkHyprMonitors = import ../lib/mkHyprMonitors.nix;
     sample = [
       { name = "eDP-1"; resolution = "1920x1080"; refreshRate = 144; position = { x = 0; y = 0; }; scale = 1.0; }
       { name = "HDMI-A-1"; resolution = "1920x1080"; refreshRate = 60; position = { x = 1920; y = 0; }; scale = 1.0; }

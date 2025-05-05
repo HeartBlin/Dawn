@@ -3,7 +3,7 @@
 let
   inherit (inputs.nixpkgs.lib) mkMerge;
 
-  mkSystem = import ./lib/mkSystem.nix { inherit inputs self withSystem;};
+  mkSystem = import "${self}/lib/mkSystem.nix" { inherit inputs self withSystem;};
 in {
   flake.nixosConfigurations = mkMerge [
     # Vega, a ROG Strix G513IE
