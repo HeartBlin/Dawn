@@ -24,8 +24,6 @@
     hyprpaper.inputs.nixpkgs.follows = "hyprland/nixpkgs";
     hyprpaper.inputs.systems.follows = "hyprland/systems";
 
-    lix.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
-
     prismlauncher.url = "github:PrismLauncher/PrismLauncher";
     prismlauncher.inputs.nixpkgs.follows = "nixpkgs";
 

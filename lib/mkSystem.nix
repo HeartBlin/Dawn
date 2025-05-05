@@ -25,7 +25,6 @@ let
         hyprland.nixosModules.default
         disko.nixosModules.default
         nix-minecraft.nixosModules.minecraft-servers
-        lix.nixosModules.default
       ];
 
       defaultOverlays = with inputs; [{

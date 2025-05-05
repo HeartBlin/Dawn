@@ -1,4 +1,4 @@
-{ dawn, inputs, inputs', lib, ... }:
+{ dawn, inputs, inputs', lib, pkgs, ... }:
 
 let 
   inherit (lib) mapAttrs mapAttrsToList;
@@ -7,6 +7,7 @@ in {
   environment.defaultPackages = lib.mkForce [ ];
 
   nix = {
+    package = pkgs.lix;
     registry = mapAttrs (_: flake: { inherit flake;}) inputs;
     nixPath = mapAttrsToList (x: _: "${x}=flake:${x}") inputs;
     channel.enable = false;
