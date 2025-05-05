@@ -3,7 +3,7 @@
 let
   inherit (lib) getExe mkEnableOption mkIf;
   inherit (config.dawn) fish;
-  inherit (dawn) userName defaultFlakeLocation;
+  inherit (dawn) userName;
 in {
   options.dawn.fish.enable = mkEnableOption "Enables fish + starship";
   
@@ -31,11 +31,11 @@ in {
           end
 
           function nix-switch
-            nh os switch ${defaultFlakeLocation}
+            nh os switch
           end
 
           function nix-update
-            nh os switch -u ${defaultFlakeLocation}
+            nh os switch -u
           end
 
           function fish_command_not_found
