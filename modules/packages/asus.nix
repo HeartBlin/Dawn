@@ -1,17 +1,29 @@
-{ config, lib, pkgs, ... }:
+{ config, dawn, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkIf mkOption;
+  inherit (lib.types) listOf str;
   inherit (config.dawn) asus;
+  inherit (dawn.asusUtils) mkLedChangeScript;
 
-  ledChange = pkgs.writeShellScriptBin "ledChange" ''
-    ${pkgs.asusctl}/bin/asusctl aura static -z 1 -c 0066FF
-    ${pkgs.asusctl}/bin/asusctl aura static -z 2 -c 00A69D
-    ${pkgs.asusctl}/bin/asusctl aura static -z 3 -c 00E63B
-    ${pkgs.asusctl}/bin/asusctl aura static -z 4 -c 00FF14
-  '';
+  defaultColors = [ "0066FF" "00A69D" "00E63B" "00FF14" ];
+  ledChange = mkLedChangeScript {
+    name = "ledChange";
+    colors = asus.ledColors;
+  };
 in {
-  options.dawn.asus.enable = mkEnableOption "Enables ASUS support";
+  options.dawn.asus = {
+    enable = mkEnableOption "Enables ASUS support";
+    ledColors = mkOption {
+      type = listOf str;
+      default = defaultColors;
+      description = ''
+        List of colors for the ASUS LEDs.
+        Each color is a hex string without the leading #.
+        Supports only the G513IE model currently, given it's 4 zones.
+      '';
+    };
+  };
   
   config = mkIf asus.enable {
     services = {

@@ -14,6 +14,10 @@ let
   };
 in {
   dawn = {
+    asus = {
+      enable = true;
+      ledColors = [ "0066FF" "00A69D" "00E63B" "00FF14" ];
+    };
     hyprland = {
       enable = true;
       monitors = [
@@ -34,8 +38,7 @@ in {
         monitor = m.name;
       }) monitors;
     };
-    
-    asus.enable = true;
+
     fish.enable = true;
     foot.enable = true;
     minecraft.enable = true;
