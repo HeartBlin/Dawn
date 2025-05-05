@@ -6,31 +6,30 @@ let
     url = "https://i.imgur.com/CzGdSG6.jpeg";
     sha256 = "sha256-spyiaJ5LFppEnmdWej59j8AQ3Y+WdXkJUfQqkDp7JDk=";
   };
-
-  offset = x: { inherit x; y = 0; };
-  defaultMonitor = {
-    resolution = "1920x1080";
-    scale = 1.0;
-  };
 in {
   dawn = {
     asus = {
       enable = true;
       ledColors = [ "0066FF" "00A69D" "00E63B" "00FF14" ];
     };
+    
     hyprland = {
       enable = true;
       monitors = [
-        (defaultMonitor // {
+        {
           name = "eDP-1";
+          resolution = "1920x1080";
           refreshRate = 144;
-          position = offset 0;
-        })
-        (defaultMonitor // {
+          position = { x = 0; y = 0; };
+          scale = 1.0;
+        }
+        {
           name = "HDMI-A-1";
+          resolution = "1920x1080";
           refreshRate = 60;
-          position = offset 1920;
-        })
+          position =  { x = 1920; y = 0; };
+          scale = 1.0;
+        }
       ];
 
       wallpapers = map (m: {

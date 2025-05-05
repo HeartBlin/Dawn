@@ -4,32 +4,7 @@ let
   inherit (lib) mkIf;
   inherit (config.dawn) asus foot hyprland;
   inherit (dawn.hyprUtils) mkHyprMonitors;
-
-  asusScript = pkgs.writeShellScriptBin "asusKbdLedManager" ''
-    set -euo pipefail
-
-    action="''${1:-}"
-    current=$(asusctl -k | grep -oP 'Current keyboard led brightness: \K\w+')
-
-    case "$action" in
-      up)
-        case "$current" in
-          High)   exit 0;;  # Already at max
-          *)      exec asusctl -n;;  # Increase normally
-        esac
-        ;;
-      down)
-        case "$current" in
-          Off)    exit 0;;  # Already at min
-          *)      exec asusctl -p;;  # Decrease normally
-        esac
-        ;;
-      *)
-        echo "Usage: $0 [up|down]" >&2
-        exit 1
-        ;;
-    esac
-  '';
+  inherit (dawn.asusUtils) asusKbdLedManagerScript;
 
   terminal = if foot.enable 
              then "foot"
@@ -51,8 +26,8 @@ let
   brightness = {
     up = "${lib.getExe pkgs.brightnessctl} -q set +5%";
     down = "${lib.getExe pkgs.brightnessctl} -q set 5%-";
-    kUp = if asus.enable then "${lib.getExe asusScript} up" else "";
-    kDown = if asus.enable then "${lib.getExe asusScript} down" else "";
+    kUp = if asus.enable then "${lib.getExe asusKbdLedManagerScript} up" else "";
+    kDown = if asus.enable then "${lib.getExe asusKbdLedManagerScript} down" else "";
   };
 
   playerCtl = {
