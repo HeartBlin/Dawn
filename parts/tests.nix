@@ -1,10 +1,10 @@
-{ inputs, ... }:
+{ inputs, self, ... }:
 
 let
-  monitorExpr = (import ./tests/testHyprMonitors.nix).expr;
-  monitorExpect = (import ./tests/testHyprMonitors.nix).expected;
-  wallpaperExpr = (import ./tests/testHyprWallpapers.nix).expr;
-  wallpaperExpect = (import ./tests/testHyprWallpapers.nix).expected;
+  monitorExpr = (import "${self}/tests/testHyprMonitors.nix").expr;
+  monitorExpect = (import "${self}/tests/testHyprMonitors.nix").expected;
+  wallpaperExpr = (import "${self}/tests/testHyprWallpapers.nix").expr;
+  wallpaperExpect = (import "${self}/tests/testHyprWallpapers.nix").expected;
 in {
   imports = [ inputs.nix-unit.modules.flake.default ];
 
