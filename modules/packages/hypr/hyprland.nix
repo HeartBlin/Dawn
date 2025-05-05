@@ -3,7 +3,7 @@
 let
   inherit (lib) mkIf;
   inherit (config.dawn) asus foot hyprland;
-  inherit (dawn.functions) mkHyprMonitors;
+  inherit (dawn.hyprUtils) mkHyprMonitors;
 
   asusScript = pkgs.writeShellScriptBin "asusKbdLedManager" ''
     set -euo pipefail

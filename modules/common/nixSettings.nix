@@ -34,7 +34,7 @@ in {
     package = inputs'.nh.packages.default;
     clean.enable = true;
     clean.extraArgs = "--keep 5 --keep-since 3d";
-    flake = dawn.defaultFlakeLocation;
+    flake = dawn.flakePath;
   };
 
   documentation = {

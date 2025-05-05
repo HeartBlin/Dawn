@@ -4,17 +4,11 @@ let
   inherit (inputs.nixpkgs) lib;
   inherit (lib) nixosSystem;
 
-  mkSystem = { hostName, system, userName, prettyName }:
-    withSystem system ({inputs', self', ... }: let
-      defaultFlakeLocation = "/home/${userName}/Documents/Dawn";
-      
-      mkHyprMonitors = import ./mkHyprMonitors.nix;
-      mkHyprWallpapers = import ./mkHyprWallpapers.nix;
-      functions = { inherit mkHyprMonitors mkHyprWallpapers; };
-      
-      dawn = { inherit hostName system userName prettyName 
-                       defaultFlakeLocation functions; };
+  mkSystem = { hostName, system, userName, prettyName, flakePath }:
+    withSystem system ({inputs', self', ... }: let      
+      hyprUtils = import "${self}/lib/hyprUtils.nix" { inherit lib; };  
 
+      dawn = { inherit hostName system userName prettyName flakePath hyprUtils; };
       specialArgs = { inherit inputs inputs' self' self system dawn; };
  
       defaultPaths = [

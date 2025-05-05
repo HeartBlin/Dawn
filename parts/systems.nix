@@ -7,11 +7,12 @@ let
 in {
   flake.nixosConfigurations = mkMerge [
     # Vega, a ROG Strix G513IE
-    (mkSystem {
+    (mkSystem rec {
       hostName = "Vega";
       system = "x86_64-linux";
       userName = "heartblin";
       prettyName = "HeartBlin";
+      flakePath = "/home/${userName}/Documents/Dawn";
     })
   ];
 }

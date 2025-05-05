@@ -3,7 +3,7 @@
 let
   inherit (lib) mkIf;
   inherit (config.dawn) hyprland;
-  inherit (dawn.functions) mkHyprWallpapers;
+  inherit (dawn.hyprUtils) mkHyprWallpapers;
 
   settings = ''
     ${mkHyprWallpapers hyprland.wallpapers}

@@ -1,10 +1,12 @@
 { inputs, self, ... }:
 
 let
-  monitorExpr = (import "${self}/tests/testHyprMonitors.nix").expr;
-  monitorExpect = (import "${self}/tests/testHyprMonitors.nix").expected;
-  wallpaperExpr = (import "${self}/tests/testHyprWallpapers.nix").expr;
-  wallpaperExpect = (import "${self}/tests/testHyprWallpapers.nix").expected;
+  inherit (inputs.nixpkgs) lib;
+
+  monitorExpr = (import "${self}/tests/testHyprMonitors.nix" { inherit lib; }).expr;
+  monitorExpect = (import "${self}/tests/testHyprMonitors.nix" { inherit lib; }).expected;
+  wallpaperExpr = (import "${self}/tests/testHyprWallpapers.nix" { inherit lib; }).expr;
+  wallpaperExpect = (import "${self}/tests/testHyprWallpapers.nix" { inherit lib; }).expected;
 in {
   imports = [ inputs.nix-unit.modules.flake.default ];
 
