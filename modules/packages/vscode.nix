@@ -1,10 +1,10 @@
-{ config, dawn, lib, pkgs, self, ... }:
+{ config, dawn, lib, pkgs, ... }:
 
 let
   inherit (lib) mkEnableOption mkIf;
   inherit (builtins) toJSON;
   inherit (config.dawn) vscode;
-  inherit (dawn) userName hostName;
+  inherit (dawn) flakePath hostName userName;
 
   vscodeExtended = pkgs.vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [
@@ -40,7 +40,7 @@ let
     "nix.serverPath" = "nixd";
     "nix.serverSettings"."nixd" = {
       "formatting"."command" = [ "nixfmt" ];
-      "options"."nixos"."expr" = "(builtins.getFlake \"${toString self}\").nixosConfigurations.${hostName}.options";
+      "options"."nixos"."expr" = "(builtins.getFlake \"${flakePath}\").nixosConfigurations.${hostName}.options";
     };
 
     # Workbench
