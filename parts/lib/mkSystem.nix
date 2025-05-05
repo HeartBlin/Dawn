@@ -15,7 +15,7 @@ let
       dawn = { inherit hostName system userName prettyName 
                        defaultFlakeLocation functions; };
 
-      specialArgs = { inherit inputs inputs' self' system dawn; };
+      specialArgs = { inherit inputs inputs' self' self system dawn; };
  
       defaultPaths = [
         "${self}/modules/common/fonts.nix"
