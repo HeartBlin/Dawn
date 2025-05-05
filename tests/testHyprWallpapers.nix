@@ -1,16 +1,16 @@
 {
-  expected = ''preload = /home/heartblin/wall.jpg
-wallpaper = eDP-1, /home/heartblin/wall.jpg
+  expected = ''preload = /home/user/wall.jpg
+wallpaper = eDP-1, /home/user/wall.jpg
 
-preload = /home/heartblin/wall.png
-wallpaper = HDMI-A-1, /home/heartblin/wall.png
+preload = /home/user/wall.png
+wallpaper = HDMI-A-1, /home/user/wall.png
 '';
 
   expr = let
     mkHyprWallpapers = import ../parts/lib/mkHyprWallpapers.nix;
     sample = [
-      { monitor = "eDP-1"; wallpaper = "/home/heartblin/wall.jpg"; }
-      { monitor = "HDMI-A-1"; wallpaper = "/home/heartblin/wall.png"; }
+      { monitor = "eDP-1"; wallpaper = "/home/user/wall.jpg"; }
+      { monitor = "HDMI-A-1"; wallpaper = "/home/user/wall.png"; }
     ];
   in mkHyprWallpapers sample;
 }
