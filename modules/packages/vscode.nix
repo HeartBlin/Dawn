@@ -2,7 +2,7 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
-  inherit (lib.generators) toJSON;
+  inherit (builtins) toJSON;
   inherit (config.dawn) vscode;
   inherit (dawn) defaultFlakeLocation userName hostName;
 
@@ -16,7 +16,7 @@ let
     ];
   };
 
-  settings = toJSON { } {
+  settings = toJSON {
     # Editor
     "editor.guides.bracketPairs" = "active";
     "editor.bracketPairColorization.enabled" = true;
