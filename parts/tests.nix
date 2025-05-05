@@ -13,8 +13,8 @@ in {
       inputs = { inherit (inputs) nixpkgs flake-parts nix-unit systems; };
       tests = {
         "test mkHyprMonitors expression output" = {
-          expr = "${monitorExpect}";
-          expected = "${monitorExpr}";
+          expr = "${monitorExpr}";
+          expected = "${monitorExpect}";
         };
 
         "test mkHyprWallpapers expression output" = {
