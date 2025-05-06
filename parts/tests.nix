@@ -8,6 +8,7 @@ in {
 
   perSystem = { pkgs, ... }: let
     asusTest = import "${self}/tests/testLedChangeScript.nix" { inherit lib pkgs; };
+    importAllTest = import "${self}/tests/testImportAll.nix" { inherit lib pkgs; };
     monitorTest = import "${self}/tests/testHyprMonitors.nix" { inherit lib; };
     wallpaperTest = import "${self}/tests/testHyprWallpapers.nix" { inherit lib; };
   in {
@@ -27,6 +28,11 @@ in {
         "test mkLedChangeScript expression output" = {
           expr = "${asusTest.expr}";
           expected = "${asusTest.expected}";
+        };
+
+        "test importAll function" = {
+          expr = "${importAllTest.expr}";
+          expected = "${importAllTest.expected}";
         };
       };
     };

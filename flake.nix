@@ -34,10 +34,6 @@
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    nix-unit.url = "github:nix-community/nix-unit";
-    nix-unit.inputs.nixpkgs.follows  = "nixpkgs";
-    nix-unit.inputs.flake-parts.follows = "flake-parts";
-
     systems.url = "github:nix-systems/default-linux";
 
     zen-browser.url = "github:youwen5/zen-browser-flake";

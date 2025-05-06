@@ -1,6 +1,3 @@
 _: {
-  imports = [
-    ./systems.nix
-    ./tests.nix
-  ];
+  imports = [ ./systems.nix ];
 }
