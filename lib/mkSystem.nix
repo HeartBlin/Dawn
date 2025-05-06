@@ -8,17 +8,15 @@ let
     withSystem system ({inputs', self', pkgs, ... }: let
       hyprUtils = import "${self}/lib/hyprUtils.nix" { inherit lib; };
       asusUtils = import "${self}/lib/asusUtils.nix" { inherit lib pkgs; };
+      importAll = import "${self}/lib/importAll.nix" { inherit lib; };
 
       dawn = { inherit hostName system userName prettyName flakePath
-                       asusUtils hyprUtils; };
+                       asusUtils hyprUtils importAll; };
 
       specialArgs = { inherit inputs inputs' self' self system dawn; };
 
       defaultPaths = [
-        "${self}/modules/common/fonts.nix"
-        "${self}/modules/common/nixSettings.nix"
-        "${self}/modules/common/boot.nix"
-        "${self}/modules/common/i18n.nix"
+        "${self}/modules/common"
         "${self}/modules/packages"
       ];
 
