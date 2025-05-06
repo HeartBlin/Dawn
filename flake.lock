@@ -239,11 +239,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1746446940,
-        "narHash": "sha256-RG3NQ1qRbseMFoH/Yzh2Ec53urkEREWelo7GIlHIsoA=",
+        "lastModified": 1746496467,
+        "narHash": "sha256-PFmX5SvVN54LdFEBzMBIx4JEKOGP5d6nR/PcYHQhMlw=",
         "owner": "hyprwm",
         "repo": "hyprland",
-        "rev": "1f50cdfa8be87502c555d29bcfa327fb6bea551d",
+        "rev": "1ce614dfc0eb8b323e603b76975842c1f2e6a553",
         "type": "github"
       },
       "original": {
@@ -669,11 +669,11 @@
         "qt-qrcodegenerator": "qt-qrcodegenerator"
       },
       "locked": {
-        "lastModified": 1746464675,
-        "narHash": "sha256-5iUTXUOv8quLuJxMf2UthPELw1HTWUAGZcwajXYkSlM=",
+        "lastModified": 1746485130,
+        "narHash": "sha256-lXMM8CJlBvAUEfhtbzPtlAOVDcpDSrA25Z7K/EZuTeg=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "f1d264d12d177cc7bad908a658ea0a8744da27cf",
+        "rev": "cb8f6f5e80e42dc7d59336109d5ae3daa45f024e",
         "type": "github"
       },
       "original": {
