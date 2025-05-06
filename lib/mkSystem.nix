@@ -18,6 +18,7 @@ let
         "${self}/modules/common/fonts.nix"
         "${self}/modules/common/nixSettings.nix"
         "${self}/modules/common/boot.nix"
+        "${self}/modules/common/i18n.nix"
         "${self}/modules/packages"
       ];
 
