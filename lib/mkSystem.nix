@@ -17,6 +17,7 @@ let
       defaultPaths = [
         "${self}/modules/common/fonts.nix"
         "${self}/modules/common/nixSettings.nix"
+        "${self}/modules/common/boot.nix"
         "${self}/modules/packages"
       ];
 
