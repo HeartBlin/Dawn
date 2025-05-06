@@ -6,7 +6,7 @@ let
   inherit (dawn) userName;
 in {
   options.dawn.steam.enable = mkEnableOption "Enables Steam";
-  
+
   config = mkIf steam.enable {
     users.users.${userName}.packages = [ pkgs.protontricks ];
 

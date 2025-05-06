@@ -6,7 +6,7 @@ let
   inherit (dawn.hyprUtils) mkHyprMonitors;
   inherit (dawn.asusUtils) asusKbdLedManagerScript;
 
-  terminal = if foot.enable 
+  terminal = if foot.enable
              then "foot"
              else "";
 
@@ -125,7 +125,7 @@ let
     bind = $mod, C, exec, ${editor}
     bind = $mod, Q, killactive
     bind = $mod, F, togglefloating
-    bind = $mod Shift, F, fullscreen 
+    bind = $mod Shift, F, fullscreen
     bind = $mod Shift, Q, exit
 
     # Switch workspaces

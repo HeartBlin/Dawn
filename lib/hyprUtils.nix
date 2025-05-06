@@ -1,6 +1,6 @@
 { lib }:
 
-let 
+let
   inherit (builtins) concatStringsSep elemAt match stringLength substring;
   inherit (lib) unique;
 

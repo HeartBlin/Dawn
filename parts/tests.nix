@@ -7,9 +7,9 @@ in {
   imports = [ inputs.nix-unit.modules.flake.default ];
 
   perSystem = { pkgs, ... }: let
-    asusTest = (import "${self}/tests/testLedChangeScript.nix" { inherit lib pkgs; });
-    monitorTest = (import "${self}/tests/testHyprMonitors.nix" { inherit lib; });
-    wallpaperTest = (import "${self}/tests/testHyprWallpapers.nix" { inherit lib; });
+    asusTest = import "${self}/tests/testLedChangeScript.nix" { inherit lib pkgs; };
+    monitorTest = import "${self}/tests/testHyprMonitors.nix" { inherit lib; };
+    wallpaperTest = import "${self}/tests/testHyprWallpapers.nix" { inherit lib; };
   in {
     nix-unit = {
       inputs = { inherit (inputs) nixpkgs flake-parts nix-unit systems; };

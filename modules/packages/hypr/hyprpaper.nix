@@ -9,7 +9,7 @@ let
     ${mkHyprWallpapers hyprland.wallpapers}
     splash = false
     ipc = false
-  '';  
+  '';
 in {
   config = mkIf hyprland.enable {
     environment.systemPackages = [

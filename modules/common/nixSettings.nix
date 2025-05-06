@@ -1,6 +1,6 @@
 { dawn, inputs, inputs', lib, pkgs, ... }:
 
-let 
+let
   inherit (lib) mapAttrs mapAttrsToList;
 in {
   nixpkgs.config.allowUnfree = true;

@@ -5,15 +5,15 @@ let
   inherit (lib) nixosSystem;
 
   mkSystem = { hostName, system, userName, prettyName, flakePath }:
-    withSystem system ({inputs', self', pkgs, ... }: let      
-      hyprUtils = import "${self}/lib/hyprUtils.nix" { inherit lib; };  
+    withSystem system ({inputs', self', pkgs, ... }: let
+      hyprUtils = import "${self}/lib/hyprUtils.nix" { inherit lib; };
       asusUtils = import "${self}/lib/asusUtils.nix" { inherit lib pkgs; };
 
-      dawn = { inherit hostName system userName prettyName flakePath 
+      dawn = { inherit hostName system userName prettyName flakePath
                        asusUtils hyprUtils; };
-                       
+
       specialArgs = { inherit inputs inputs' self' self system dawn; };
- 
+
       defaultPaths = [
         "${self}/modules/common/fonts.nix"
         "${self}/modules/common/nixSettings.nix"

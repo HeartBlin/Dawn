@@ -8,7 +8,7 @@ in {
     enable = mkEnableOption "Enables Minecraft Launcher";
     server.enable = mkEnableOption "Enables a Minecraft Server";
   };
-  
+
   config = mkIf minecraft.enable {
     nix.settings = {
       substituters = [ "https://prismlauncher.cachix.org" ];

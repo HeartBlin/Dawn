@@ -5,7 +5,7 @@ let
   inherit (config.dawn) fish foot;
 in {
   options.dawn.foot.enable = mkEnableOption "Enables foot";
-  
+
   config = mkIf foot.enable {
     programs.foot = {
       enable = true;

@@ -6,7 +6,7 @@ let
   inherit (dawn) userName;
 in {
   options.dawn.fish.enable = mkEnableOption "Enables fish + starship";
-  
+
   config = mkIf fish.enable {
     users.users.${userName}.shell = pkgs.fish;
     programs = {

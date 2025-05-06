@@ -24,7 +24,7 @@ in {
       '';
     };
   };
-  
+
   config = mkIf asus.enable {
     services = {
       supergfxd.enable = true;

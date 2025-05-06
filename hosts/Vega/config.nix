@@ -12,7 +12,7 @@ in {
       enable = true;
       ledColors = [ "0066FF" "00A69D" "00E63B" "00FF14" ];
     };
-    
+
     hyprland = {
       enable = true;
       monitors = [
@@ -101,7 +101,7 @@ in {
 
   # GNOME Boxes / Virtualization
   virtualisation.libvirtd.enable = true;
-  programs.dconf.enable = true; 
+  programs.dconf.enable = true;
 
   # NTFS Mounting
   boot.supportedFilesystems = [ "ntfs" ];
@@ -118,7 +118,7 @@ in {
     pkgs.gnome-boxes
     pkgs.gnome-tweaks
     pkgs.gnome-disk-utility
-    pkgs.nautilus   
+    pkgs.nautilus
     pkgs.gnome.gvfs
     pkgs.ntfs3g
 

@@ -30,7 +30,7 @@ let
   '';
 in rec {
   inherit asusKbdLedManagerScript;
-  
+
   generateLedChangeScript = { colors }: if length colors != 4 then
     throw "asusUtils.generateLedChangeScript: Expected 4 colors, got ${length colors}"
   else concatMapStringsSep "\n" (idx: let
