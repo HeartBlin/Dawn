@@ -8,11 +8,11 @@ wallpaper = HDMI-A-1, /home/user/wall.png
 wallpaper = DP-1, /home/user/wall.jpg'';
 
   expr = let
-    mkHyprWallpapers = import ../lib/hyprUtils.nix { inherit lib; }.mkHyprWallpapers;
+    hyprUtils = import ../lib/hyprUtils.nix { inherit lib; };
     sample = [
       { monitor = "eDP-1"; wallpaper = "/home/user/wall.jpg"; }
       { monitor = "HDMI-A-1"; wallpaper = "/home/user/wall.png"; }
       { monitor = "DP-1"; wallpaper = "/home/user/wall.jpg"; }
     ];
-  in mkHyprWallpapers sample;
+  in hyprUtils.mkHyprWallpapers sample;
 }
