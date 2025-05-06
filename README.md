@@ -35,4 +35,4 @@ Configurations where I got *inspired* from:
 - [NotAShelf](https://github.com/NotAShelf/nyx) _<sub>archive</sub>_
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project uses the Unlicense. See the [LICENSE](LICENSE) file for details.
