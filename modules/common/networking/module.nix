@@ -37,7 +37,11 @@ in {
       enable = mkForce true;
       settings = {
         IPv6.Enabled = true;
-        Settings.AutoConnect = true;
+        Settings = {
+          AutoConnect = true;
+          FrequencyPreference = "5ghz";
+        };
+
         General = {
           EnableNetworkConfiguration = true;
           AddressRandomization = "once";
