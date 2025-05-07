@@ -53,11 +53,8 @@ in {
   # Boot
   boot.initrd.kernelModules = [ "zfs" ];
 
-  # Networking && Hostname
-  networking = {
-    networkmanager.enable = true;
-    hostId = "73f96d11";
-  };
+  # Networking
+  networking.hostId = "73f96d11";
 
   # X11
   services.xserver.enable = true;
@@ -82,13 +79,8 @@ in {
     nvidiaSettings = false;
   };
 
-  # GNOME Boxes / Virtualization
-  virtualisation.libvirtd.enable = true;
-  programs.dconf.enable = true;
-
   # NTFS Mounting
   boot.supportedFilesystems = [ "ntfs" ];
-  services.udisks2.enable = true;
 
   # General Packages
   environment.systemPackages = [
