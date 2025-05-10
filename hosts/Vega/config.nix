@@ -82,6 +82,9 @@ in {
   # NTFS Mounting
   boot.supportedFilesystems = [ "ntfs" ];
 
+  # Kernel
+  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
+
   # General Packages
   environment.systemPackages = [
     pkgs.wget

@@ -21,6 +21,7 @@ let
       ];
 
       defaultModules =  with inputs; [
+        chaotic.nixosModules.default
         homix.nixosModules.default
         hyprland.nixosModules.default
         disko.nixosModules.default
